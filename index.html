@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>MindAR2024</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <style>
       body { margin: 0; overflow: hidden; }
@@ -30,7 +30,7 @@
   </head>
   <body>
     <a-scene
-      2024MindAr-image="imageTargetSrc: Joel/targets.mind; autoStart: true;"
+      mindar-image="imageTargetSrc: Joel/targets.mind; autoStart: true;"
       color-space="sRGB"
       renderer="colorManagement: true, physicallyCorrectLights"
       vr-mode-ui="enabled: false"
@@ -39,7 +39,7 @@
       <a-assets>
         <video id="animated-video" src="https://github.com/Emmanuel-ICT-Support/2024MindAR/raw/refs/heads/main/Joel/JoelFinalDesign.mp4" preload="auto" loop crossorigin="anonymous" playsinline></video>
       </a-assets>
-      <a-entity 2024MindAR-image-target="targetIndex: 0" videohandler>
+      <a-entity mindar-image-target="targetIndex: 0" videohandler>
         <a-video src="#animated-video" width="1.5" height="1.5" position="0 -0.5 0" rotation="0 0 0" autoplay loop playsinline></a-video>
       </a-entity>
       <a-camera position="0 0 0" look-controls></a-camera>
