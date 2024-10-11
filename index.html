@@ -1,13 +1,33 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <title>MindAR2024</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image.prod.js"></script>
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.2.5/dist/mindar-image-aframe.prod.js"></script>
-</head>
+    <title>MindAR 2024</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <style>
+      body { margin: 0; overflow: hidden; }
+    </style>
+    <script>
+      AFRAME.registerComponent('videohandler', {
+        init: function () {
+          var marker = this.el;
+          var video = document.querySelector("#animated-video");
+
+          marker.addEventListener('targetFound', function() {
+            video.play();
+            video.muted = false;
+          });
+
+          marker.addEventListener('targetLost', function() {
+            video.pause();
+            video.muted = true;
+          });
+        }
+      });
+    </script>
+  </head>
   <body>
     <a-scene mindar-image="imageTargetSrc: https://github.com/Emmanuel-ICT-Support/2024MindAR/raw/refs/heads/main/Joel/targets.mind; autoStart: true;"
       color-space="sRGB"
