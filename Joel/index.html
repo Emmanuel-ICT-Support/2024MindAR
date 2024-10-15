@@ -14,10 +14,9 @@
         init: function () {
           var marker = this.el;
           var video = document.querySelector("#Joel");
-            video.play();
 
           marker.addEventListener('targetFound', function() {
-            video.unpause();
+            video.play();
           });
 
           marker.addEventListener("targetLost", function() {
