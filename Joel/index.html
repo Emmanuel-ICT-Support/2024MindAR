@@ -17,10 +17,11 @@
 
           marker.addEventListener('targetFound', function() {
             video.play();
+            video.unpause();
           });
 
           marker.addEventListener("targetLost", function() {
-            video.stop();
+            video.pause();
           });
 
         }
